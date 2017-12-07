@@ -1,0 +1,104 @@
+﻿@using AppTemplate.Models
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>@ViewBag.Title | ET - Legal</title>
+    <link href="~/Content/loginformedited.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <title>Login</title>
+</head>
+
+<body class="hold-transition login-page">
+    <header> <img src="~/Content/Images/header.jpg" class="page-header col-lg-12" height="200"></header>
+
+    <div class="container formParent col-lg-12">
+
+        <div class="container ideaform-logos col-lg-4">
+
+            <div class="container ideaform-logoimages col-lg-12">
+                <img src="~/Content/Images/purchasingandsupplychain.png" class="img-thumbnail logo1" />
+            </div>
+            <div class="container ideaform-logoimages col-lg-12">
+                <img src="~/Content/Images/assetmanagement.png" class="img-thumbnail logo2" />
+            </div>
+            <div class="container ideaform-logoimages col-lg-12">
+                <img src="~/Content/Images/operationalexellence.png" class="img-thumbnail logo3" />
+            </div>
+            <div class="container ideaform-logoimages col-lg-12">
+                <img src="~/Content/Images/humancapitalinstitute.png" class="img-thumbnail logo4" />
+
+                <h3 class="hci">HUMAN CAPITAL INSTITUTE</h3>
+            </div>
+            <div class="container ideaform-logoimages col-lg-12">
+                <img src="~/Content/Images/digitalmarketing.png" class="img-thumbnail logo5" /><br />
+                <h3 class="digitalmarketing">Digital Marketing Insititute, Republic of Ireland</h3>
+            </div>
+
+        </div>
+
+
+        <div class="login-box formlogin col-lg-4">
+            <div class="login-logo">
+                <a href="../../index2.html"><b>ET - Legal</b></a></span>
+            </div>
+            <div class="login-box-body">
+                <div class="login-logo">
+                    <img src="~/Content/logo.jpg" alt="Logo" class="img img-responsive">
+
+                </div>
+                <p class="login-box-msg">Log in to start your session</p>
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="has-feedback">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Email" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div class="has-feedback">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg"></i></span>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div class="form-group box-footer">
+                        <div class="col-xs-6">
+
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="col-xs-6 pull-right">
+                            <button type="submit" value="Log in" class="btn btn-primary btn-block"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;&nbsp; Log In</button>
+                        </div><!-- /.col -->
+                    </div>
+                }
+                @Html.ActionLink("Forgot your password?", "ForgotPassword")<br>
+            </div><!-- /.login-box-body -->
+
+        </div><!-- /.login-box -->
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+        </div>
+</body>
+</html>

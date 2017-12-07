@@ -1,0 +1,6 @@
+﻿body {
+}
+.login-page,
+.register-page {
+  background-image: url("/Content/Images/backgrounde.jpg");
+}

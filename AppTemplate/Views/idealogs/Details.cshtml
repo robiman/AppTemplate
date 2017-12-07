@@ -1,0 +1,39 @@
+﻿@model AppTemplateDAL.Models.Master.idealog
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>idealog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeesBO.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeesBO.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idea)
+        </dd>
+      
+</dl>
+    <div class="container statusbuttons">
+    <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("AcceptStatus", "idealogs",new { id=Model.LogId})'">Accept Idea</button>
+    <button type="button" class="btn btn-secondary btn-lg" onclick="location.href='@Url.Action("RejectStatus", "idealogs",new { id=Model.LogId})'">Reject Idea</button>
+        </div>
+    
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LogId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

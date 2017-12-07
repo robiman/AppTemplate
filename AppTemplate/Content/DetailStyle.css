@@ -1,0 +1,11 @@
+﻿body {
+}
+.btn-primary {
+    background-color: #00a65a;
+    border-color: #367fa9;
+}
+button.btn.btn-secondary.btn-lg {
+    background-color: #00a65a;
+    border-color: #367fa9;
+    color: white;
+}

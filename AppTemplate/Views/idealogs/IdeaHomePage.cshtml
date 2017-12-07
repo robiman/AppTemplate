@@ -1,0 +1,217 @@
+﻿@model AppTemplateDAL.Models.Master.idealog
+
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/AdminLTE")
+<link href="~/Content/BootstrapDataTable/BootstrapDataTableCSS.css" rel="stylesheet" />
+<link href="~/Content/form.css" rel="stylesheet" />
+<link href="~/Content/AdminLTE/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+<link href="~/Content/AdminLTE/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet" />
+<link href="~/Content/AdminLTE/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+<link href="~/Content/customStyle.css" rel="stylesheet" />
+
+<script src="~/Content/AdminLTE/plugins/fullcalendar-scheduler-1.3.3/moment.min.js"></script>
+@*<script src="~/Content/AdminLTE/plugins/daterangepicker/moment.js"></script>*@
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+<script src="~/Scripts/bootbox.min.js"></script>
+<script src="~/Scripts/jquery.cookie.js"></script>
+<script src="~/Scripts/BootstrapDataTables/BootstrapDataTables.js"></script>
+<script src="~/Content/AdminLTE/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="~/Content/AdminLTE/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="~/Content/AdminLTE/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+<html>
+<body>
+ 
+ 
+   
+   <header> <img src="~/Content/Images/header.jpg" class="page-header col-lg-12" height="200"></header>
+    <div class="container headertext">
+    <h2>MY IDEA</h2>
+    </div>
+   
+    <div class="container formParent col-lg-12">
+
+            <div class="container ideaform-logos col-lg-6">
+
+                <div class="container ideaform-log col-lg-12">
+                    <img src="~/Content/Images/IAM.jpg" class="mySlides style=" width:100%"" />
+
+                    <img src="~/Content/Images/hcm.jpg" class="mySlides" />
+
+                    <img src="~/Content/Images/hci.png" class="mySlides" />
+
+                    <img src="~/Content/Images/dmi.jpg" class="mySlides" />
+
+
+
+                    <img src="~/Content/Images/ifoe.jpg" class="mySlides" /><br />
+
+
+
+                </div>
+                </div>
+
+
+        <script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 5000); // Change image every 2 seconds
+}
+        </script>
+
+        
+
+
+
+            <div class="container ideaform-container col-lg-6">
+
+                @using (Html.BeginForm("Create", "idealogs", FormMethod.Post))
+                {
+
+                    @Html.AntiForgeryToken()
+
+
+
+                    <h3>SUBMIT YOUR INVENTION IDEA</h3>
+                    <fieldset class="personal col-lg-6 col-sm-12">
+                        <legend>Personal Information</legend>
+                        <div class="form-group col-lg-12 col-sm-12">
+                            @Html.LabelFor(model => model.EmployeeId, htmlAttributes: new { @class = "control-label firstname col-md-12" })
+
+                            <div class="col-md-12 form-input col-sm-12">
+                                @Html.EditorFor(model => model.EmployeeId, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EmployeeId, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-12 col-sm-12">
+                            @Html.LabelFor(model => model.EmployeesBO.FirstName, htmlAttributes: new { @class = "control-label firstname col-md-12" })
+
+                            <div class="col-md-12 form-input col-sm-12">
+                                @Html.EditorFor(model => model.EmployeesBO.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EmployeesBO.FirstName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-12 col-sm-12">
+                            @Html.LabelFor(model => model.EmployeesBO.LastName, htmlAttributes: new { @class = "control-label lastname  col-md-12 col-lg-12" })
+
+                            <div class="col-md-12 form-input col-sm-12">
+                                @Html.EditorFor(model => model.EmployeesBO.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EmployeesBO.LastName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-lg-12 col-sm-12">
+                            @Html.LabelFor(model => model.EmployeesBO.EmailAddress, htmlAttributes: new { @class = "control-label email  col-md-12" })
+
+                            <div class="col-md-12 form-input col-sm-12">
+                                @Html.EditorFor(model => model.EmployeesBO.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EmployeesBO.EmailAddress, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-12 col-sm-12">
+                            @Html.LabelFor(model => model.EmployeesBO.PhoneNumber, htmlAttributes: new { @class = "control-label phone  col-md-12" })
+
+                            <div class="col-md-12 form-input col-sm-12">
+                                @Html.EditorFor(model => model.EmployeesBO.PhoneNumber, new { htmlAttributes = new { @class = "form-control idea" } })
+                                @Html.ValidationMessageFor(model => model.EmployeesBO.PhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                        <fieldset class="ideaforms col-lg-6 col-sm-12">
+
+                            <legend>Your Idea</legend>
+
+                            <div class="form-group col-lg-12 col-sm-12">
+                                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label phone  col-md-12" })
+
+                                <div class="col-md-12 form-input col-sm-12">
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control idea" } })
+                                    @Html.ValidationMessageFor(model => model.Title, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group col-lg-12 col-sm-12">
+                                @Html.LabelFor(model => model.FocusDivisions, htmlAttributes: new { @class = "control-label phone  col-md-12" })
+
+                                <div class="col-md-12 form-input col-sm-12">
+                                    @Html.DropDownListFor(model => model.FocusDivisions, new List<SelectListItem>() {
+                           new SelectListItem (){Text="​​Commercial" ,Value="​​Commercial" },
+                           new SelectListItem (){Text="Corporate" ,Value="Corporate" },
+                           new SelectListItem (){Text="Customer Service" ,Value="Customer Service" },
+                           new SelectListItem (){Text="EAA​" ,Value="EAA​" },
+                           new SelectListItem (){Text="ECLS" ,Value="ECLS" },
+                           new SelectListItem (){Text="Group CE​O" ,Value="Group CE​O" },
+                           new SelectListItem (){Text="Operations​" ,Value="Operations​" }}, "Select Division", htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FocusDivisions, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-lg-12 col-sm-12">
+                                @Html.LabelFor(model => model.ProjectFinance, htmlAttributes: new { @class = "control-label phone  col-md-12" })
+
+                                <div class="col-md-12 form-input col-sm-12">
+                                    @Html.EditorFor(model => model.ProjectFinance, new { htmlAttributes = new { @class = "form-control idea" } })
+                                    @Html.ValidationMessageFor(model => model.ProjectFinance, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-12 col-sm-12">
+                                @Html.LabelFor(model => model.StakeHolder, htmlAttributes: new { @class = "control-label phone  col-md-12" })
+
+                                <div class="col-md-12 form-input col-sm-12">
+                                    @Html.EditorFor(model => model.StakeHolder, new { htmlAttributes = new { @class = "form-control idea" } })
+                                    @Html.ValidationMessageFor(model => model.StakeHolder, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group  col-lg-12 col-sm-12">
+                                @Html.LabelFor(model => model.idea, htmlAttributes: new { @class = "control-label idea col-md-12" })
+                                <div class="col-md-12 form-input col-sm-12">
+                                    @Html.TextAreaFor(model => model.idea, new { @class = "form-control", @rows = 5 })
+                                    @Html.ValidationMessageFor(model => model.idea, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+                        </fieldset>
+
+
+                            <div class="form-group sub  col-lg-12">
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+                }
+
+
+            </div>
+
+        </div>
+
+         </body>
+</html>

@@ -1,0 +1,53 @@
+﻿<header class="main-header">
+    <!-- Logo -->
+    <a href="/" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><img src="/Content/et.jpg" class="img-responsive" alt="logo Image"></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><img src="~/Content/LogoMini.png" class="img-responsive" alt="lg Image"></span>
+        <b>APP</b>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+               
+              
+
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        @*<img src="~/Content/AdminLTE/img/avatar.png" class="user-image" alt="User Image" />*@
+                        <span><i class="fa fa-user"></i></span>
+                        <span> @HttpContext.Current.User.Identity.Name </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <span><i class="fa fa-user fa-5x text-success"></i></span>
+                            @*</span><img src="~/Content/AdminLTE/img/avatar.png" class="img-circle" alt="User Image" />*@
+                            <p>
+                                @HttpContext.Current.User.Identity.Name                                
+                            </p>
+                        </li>
+                      
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="@Url.Action("ChangePassword", "Account"@*, new { id = Session["Name"] }*@)" class="btn btn-default btn-block"><i class="fa fa-key"></i> Change Password</a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="@Url.Action("LogOff", "Account")" class="btn btn-danger btn-block"><i class="glyphicon glyphicon-log-out"></i> Sign out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+             
+                
+            </ul>
+        </div>
+    </nav>
+</header>

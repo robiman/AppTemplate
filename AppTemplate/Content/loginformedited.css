@@ -1,0 +1,56 @@
+﻿body {
+    background:white;
+}
+body.hold-transition.login-page {
+background-image: url("/Content/Images/backgrounde.jpg");
+    
+}
+.container.formParent.col-lg-12 {
+
+}
+}
+.login-box.formlogin.col-lg-6 {
+    float: right;
+    margin-right: 300px;
+     
+    border: 10px solid;
+}
+.container.ideaform-logos.col-lg-4 {
+    margin-top: 60px;
+    float: left;
+    margin-left: 300px;
+    
+}
+.login-box-body {
+
+background-image: url("/Content/Images/backgrounde.jpg");
+
+}
+
+img.img-thumbnail.logo1 {
+    margin-left: -200px;
+}
+img.img-thumbnail.logo2 {
+    margin-left: 100px;
+}
+img.img-thumbnail.logo3 {
+    margin-left: -200px;
+}
+img.img-thumbnail.logo5 {
+  margin-left: -242px;
+    margin-top: 20px;
+    margin-bottom: -13px
+}
+h3.digitalmarketing {
+    color: white;
+    margin-left: -245px;
+}
+h3{
+    color:white;
+}
+.login-logo {
+    background:white;
+}
+.login-box.formlogin.col-lg-4 {
+    margin-left: 100px;
+}
